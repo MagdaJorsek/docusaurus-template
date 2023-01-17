@@ -25,6 +25,28 @@ module.exports = {
       links: [],
       copyright: `Copyright © ${new Date().getFullYear()}.`,
     },
+    algolia: {
+      appId: process.env.APPLICATION_ID,
+      indexName: process.env.INDEX_NAME,
+      apiKey: process.env.API_KEY_SEARCH,
+  
+      // Optional: see doc section bellow
+      contextualSearch: true,
+
+      // Optional: Algolia search parameters
+      searchParameters: {
+          hitsPerPage: 20,
+          clickAnalytics: true,
+          analytics: true,
+          advancedSyntax: true,
+       },
+
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      searchPagePath: 'search',
+  
+      //... other Algolia params
+      selector: 'div#',
+    },
   },
   presets: [
     [
@@ -43,6 +65,7 @@ module.exports = {
       },
     ],
   ],
+  
   plugins: [
     // To enable the local search functionality, uncomment the following code:
     // [require.resolve('@cmfcmf/docusaurus-search-local'), {
